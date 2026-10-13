@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sabin Shrestha | PCB Designer</title>
+<meta name="description" content="Sabin Shrestha is a PCB designer and electrical engineering student from Dharan, Nepal, working on PCB design, electrical installation, robotics and IoT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mask:#0e3b2c; --mask-2:#134a38; --copper:#d08a3c; --silk:#f3f1e7;
+  --ink:#16221d; --muted:#51605a; --paper:#f7f6ef; --line:#d9d6c6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Archivo,"Segoe UI",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+header{background:var(--mask);color:var(--silk);position:relative;overflow:hidden;padding:96px 0 88px}
+header svg{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.trace{fill:none;stroke:var(--copper);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 3s ease-out forwards}
+.t2{animation-delay:.4s}.t3{animation-delay:.8s}
+.pad{fill:var(--copper)}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.trace{animation:none;stroke-dashoffset:0}}
+.hero{position:relative}
+.hero h1{font-size:clamp(2.6rem,9vw,5.5rem);font-weight:800;line-height:1.02;letter-spacing:-.02em}
+.hero p.role{margin-top:18px;font-size:1.25rem;color:var(--copper);font-weight:600}
+.hero p.lead{margin-top:14px;max-width:46ch;color:#d4ddd7}
+nav{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 22px;border-radius:4px;font-weight:600;text-decoration:none;border:2px solid var(--copper)}
+.btn.fill{background:var(--copper);color:#1a1209}
+.btn.line{color:var(--silk)}
+.btn:hover{background:var(--silk);border-color:var(--silk);color:var(--mask)}
+
+/* Sections */
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+h2{font-size:1.9rem;font-weight:800;letter-spacing:-.01em;margin-bottom:22px}
+.about p{max-width:62ch;font-size:1.08rem;margin-bottom:14px}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.skill{background:#fff;border:1px solid var(--line);border-left:6px solid var(--mask);padding:20px 20px 18px;border-radius:2px}
+.skill:nth-child(even){border-left-color:var(--copper)}
+.skill h3{font-size:1.1rem;margin-bottom:6px}
+.skill p{color:var(--muted);font-size:.96rem}
+
+.edu{list-style:none;border-left:3px solid var(--copper);padding-left:24px}
+.edu li{margin-bottom:26px;position:relative}
+.edu li::before{content:"";position:absolute;left:-33px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--paper);border:3px solid var(--mask)}
+.edu strong{display:block;font-size:1.12rem}
+.edu span{color:var(--muted)}
+
+.contact p{max-width:52ch;margin-bottom:18px}
+.links{display:flex;gap:12px;flex-wrap:wrap}
+.links .btn{border-color:var(--mask);color:var(--mask)}
+.links .btn:hover{background:var(--mask);color:var(--silk);border-color:var(--mask)}
+
+footer{background:var(--mask);color:#b9c7bf;padding:26px 0;font-size:.92rem}
+</style>
+</head>
+<body>
+
+<header>
+  <svg viewBox="0 0 960 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path class="trace" d="M0 430 H260 L330 360 H620 L690 430 H960"/>
+    <path class="trace t2" d="M0 480 H180 L250 410 H500 L570 480 H960"/>
+    <path class="trace t3" d="M960 90 H760 L700 150 H520 L460 90 H300"/>
+    <circle class="pad" cx="260" cy="430" r="7"/><circle class="pad" cx="690" cy="430" r="7"/>
+    <circle class="pad" cx="250" cy="410" r="0"/><circle class="pad" cx="570" cy="480" r="7"/>
+    <circle class="pad" cx="300" cy="90" r="7"/><circle class="pad" cx="760" cy="90" r="7"/>
+  </svg>
+  <div class="wrap hero">
+    <h1>Sabin<br>Shrestha</h1>
+    <p class="role">PCB Designer</p>
+    <p class="lead">I design circuit boards and build electrical, robotic and IoT systems, from schematic to working hardware.</p>
+    <nav>
+      <a class="btn fill" href="#contact">Contact me</a>
+      <a class="btn line" href="#skills">See my skills</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="about" id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <p>Hi, I'm Sabin Shrestha, a PCB designer and electrical engineering student from Dharan, Nepal. I enjoy turning an idea into a real, working circuit board.</p>
+      <p>I completed my +2 diploma in Electrical Engineering at Shree Public High School, Dharan, and continued my studies in the Electrical Engineering faculty at Purwanchal Campus. Alongside my studies, I work on PCB design, electrical installation, robotics and IoT projects.</p>
+      <p>I'm always learning and open to new projects, collaborations and learning opportunities.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill"><h3>PCB Designing</h3><p>Schematic capture, board layout and preparing boards for fabrication.</p></div>
+        <div class="skill"><h3>Electrical Installation</h3><p>Wiring and installation of electrical systems for homes and buildings.</p></div>
+        <div class="skill"><h3>Robotics</h3><p>Building robots that combine electronics, sensors and motors.</p></div>
+        <div class="skill"><h3>IoT</h3><p>Connecting devices and sensors so they can be monitored and controlled online.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <ul class="edu">
+        <li><strong>Electrical Engineering</strong><span>Purwanchal Campus, Faculty of Engineering</span></li>
+        <li><strong>+2 Diploma in Electrical Engineering</strong><span>Shree Public High School, Dharan</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p>Have a PCB, electrical or electronics project? Send me a message and tell me what you need.</p>
+      <div class="links">
+        <!-- EDIT: replace the links below with your real details -->
+        <a class="btn" href="mailto:your-email@example.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.facebook.com/your-profile" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="y">2026</span> Sabin Shrestha. sabinshrestha2558.com.np</div>
+</footer>
+<script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+</body>
+</html>
