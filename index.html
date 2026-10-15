@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sabin Shrestha | PCB Designer</title>
 <meta name="description" content="Sabin Shrestha is a PCB designer and electrical engineering student from Dharan, Nepal, working on PCB design, electrical installation, robotics and IoT.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1d2e'/%3E%3Cpath d='M36 6 14 36h14l-4 22 26-34H36z' fill='%23ffd23f'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sabin Shrestha | PCB Designer">
+<meta property="og:description" content="PCB design, electrical installation, robotics and IoT. Dharan, Nepal.">
+<meta property="og:url" content="https://sabinshrestha2558.com.np/">
+<meta property="og:image" content="https://sabinshrestha2558.com.np/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
@@ -76,6 +83,31 @@ h2::before{content:"";width:18px;height:28px;flex:none;background:var(--volt);cl
 .links .btn{border-color:var(--mask);color:var(--mask)}
 .links .btn:hover{background:var(--mask);color:var(--volt);border-color:var(--mask);box-shadow:0 0 18px rgba(56,217,255,.6)}
 
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.proj{background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.proj:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(56,217,255,.25),0 0 0 1px var(--arc)}
+.proj .thumb{aspect-ratio:16/10;background:var(--mask);display:block;width:100%;object-fit:cover}
+.proj .body{padding:18px 20px 20px}
+.proj h3{font-size:1.1rem;margin-bottom:6px}
+.proj p{color:var(--muted);font-size:.95rem;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
+.tags li{font:600 .72rem/1 ui-monospace,Consolas,monospace;padding:5px 8px;border-radius:3px;background:#fff7d6;color:#5a4400;border:1px solid #f0d77a}
+.spec-row{font:.78rem ui-monospace,Consolas,monospace;color:var(--muted);margin-bottom:10px}
+
+/* Form */
+form.msg{display:grid;gap:12px;max-width:520px;margin-bottom:26px}
+form.msg label{font-weight:600;font-size:.92rem}
+form.msg input,form.msg textarea{width:100%;font:inherit;padding:11px 13px;border:2px solid var(--line);border-radius:4px;background:#fff;color:var(--ink)}
+form.msg input:focus,form.msg textarea:focus{border-color:var(--arc);outline:none;box-shadow:0 0 0 3px rgba(56,217,255,.3)}
+form.msg textarea{min-height:130px;resize:vertical}
+form.msg button{cursor:pointer;font:inherit;font-weight:600;justify-self:start;background:var(--mask);color:var(--volt);border:2px solid var(--mask);padding:11px 26px;border-radius:4px}
+form.msg button:hover{box-shadow:0 0 18px rgba(56,217,255,.6)}
+form.msg button:disabled{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px}
+#fs{min-height:1.4em;font-weight:600}
+#fs.ok{color:#0a7a3d}#fs.err{color:#b3261e}
+
 footer{background:var(--mask);color:#a9bccb;padding:26px 0;font-size:.92rem}
 footer .spec{display:block;margin-top:4px;font:.8rem ui-monospace,Consolas,monospace;color:var(--volt);letter-spacing:.08em}
 </style>
@@ -103,7 +135,7 @@ footer .spec{display:block;margin-top:4px;font:.8rem ui-monospace,Consolas,monos
     <p class="lead">I design circuit boards and build electrical, robotic and IoT systems, from schematic to working hardware.</p>
     <nav>
       <a class="btn fill" href="#contact">Contact me</a>
-      <a class="btn line" href="#skills">See my skills</a>
+      <a class="btn line" href="#projects">See projects</a>
     </nav>
   </div>
 </header>
@@ -130,6 +162,59 @@ footer .spec{display:block;margin-top:4px;font:.8rem ui-monospace,Consolas,monos
         <div class="skill"><h3>Electrical Installation</h3><p>Wiring and installation of electrical systems for homes and buildings.</p></div>
         <div class="skill"><h3>Robotics</h3><p>Building robots that combine electronics, sensors and motors.</p></div>
         <div class="skill"><h3>IoT</h3><p>Connecting devices and sensors so they can be monitored and controlled online.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="proj">
+          <!-- EDIT: swap svg for <img class="thumb" src="img/project1.webp" alt="Home Automation board" loading="lazy" width="640" height="400"> -->
+          <svg class="thumb" viewBox="0 0 320 200" role="img" aria-label="Home Automation board illustration"><rect width="320" height="200" fill="#0b1d2e"/><path d="M0 150H90L120 120H230L260 150H320M0 60H70L100 90H200L230 60H320" fill="none" stroke="#d08a3c" stroke-width="3"/><circle cx="90" cy="150" r="5" fill="#d08a3c"/><circle cx="260" cy="150" r="5" fill="#d08a3c"/><rect x="110" y="82" width="100" height="36" rx="3" fill="#102a40" stroke="#38d9ff"/><text x="160" y="105" text-anchor="middle" font-family="monospace" font-size="13" fill="#ffd23f">Home Automation</text></svg>
+          <div class="body">
+            <h3>Home Automation</h3>
+            <p>Smart control for lights, fans and appliances from a phone or switch. Custom control board with relays, sensors and wireless connectivity, so rooms can be monitored and switched from anywhere.</p>
+            <ul class="tags"><li>Relays</li><li>Sensors</li><li>IoT</li><li>PCB</li></ul>
+          </div>
+        </article>
+        <article class="proj">
+          <!-- EDIT: swap svg for <img class="thumb" src="img/project2.webp" alt="CubeSat board" loading="lazy" width="640" height="400"> -->
+          <svg class="thumb" viewBox="0 0 320 200" role="img" aria-label="CubeSat board illustration"><rect width="320" height="200" fill="#0b1d2e"/><path d="M0 150H90L120 120H230L260 150H320M0 60H70L100 90H200L230 60H320" fill="none" stroke="#d08a3c" stroke-width="3"/><circle cx="90" cy="150" r="5" fill="#d08a3c"/><circle cx="260" cy="150" r="5" fill="#d08a3c"/><rect x="110" y="82" width="100" height="36" rx="3" fill="#102a40" stroke="#38d9ff"/><text x="160" y="105" text-anchor="middle" font-family="monospace" font-size="13" fill="#ffd23f">CubeSat</text></svg>
+          <div class="body">
+            <h3>CubeSat</h3>
+            <p>Compact satellite-style electronics built around small, low-power boards. Covers power management, onboard computing and sensor data collection in a tight form factor.</p>
+            <ul class="tags"><li>Power</li><li>Sensors</li><li>Telemetry</li><li>PCB</li></ul>
+          </div>
+        </article>
+        <article class="proj">
+          <!-- EDIT: swap svg for <img class="thumb" src="img/project3.webp" alt="LoRa SOS System board" loading="lazy" width="640" height="400"> -->
+          <svg class="thumb" viewBox="0 0 320 200" role="img" aria-label="LoRa SOS System board illustration"><rect width="320" height="200" fill="#0b1d2e"/><path d="M0 150H90L120 120H230L260 150H320M0 60H70L100 90H200L230 60H320" fill="none" stroke="#d08a3c" stroke-width="3"/><circle cx="90" cy="150" r="5" fill="#d08a3c"/><circle cx="260" cy="150" r="5" fill="#d08a3c"/><rect x="110" y="82" width="100" height="36" rx="3" fill="#102a40" stroke="#38d9ff"/><text x="160" y="105" text-anchor="middle" font-family="monospace" font-size="13" fill="#ffd23f">LoRa SOS System</text></svg>
+          <div class="body">
+            <h3>LoRa SOS System</h3>
+            <p>Long-range emergency alert device. Press one button and an SOS message travels over LoRa to a receiver, even where mobile network and Wi-Fi do not reach.</p>
+            <ul class="tags"><li>LoRa</li><li>Low power</li><li>Safety</li><li>PCB</li></ul>
+          </div>
+        </article>
+        <article class="proj">
+          <!-- EDIT: swap svg for <img class="thumb" src="img/project4.webp" alt="Coconut Pi board" loading="lazy" width="640" height="400"> -->
+          <svg class="thumb" viewBox="0 0 320 200" role="img" aria-label="Coconut Pi board illustration"><rect width="320" height="200" fill="#0b1d2e"/><path d="M0 150H90L120 120H230L260 150H320M0 60H70L100 90H200L230 60H320" fill="none" stroke="#d08a3c" stroke-width="3"/><circle cx="90" cy="150" r="5" fill="#d08a3c"/><circle cx="260" cy="150" r="5" fill="#d08a3c"/><rect x="110" y="82" width="100" height="36" rx="3" fill="#102a40" stroke="#38d9ff"/><text x="160" y="105" text-anchor="middle" font-family="monospace" font-size="13" fill="#ffd23f">Coconut Pi</text></svg>
+          <div class="body">
+            <h3>Coconut Pi</h3>
+            <p>Custom single-board computer design, laid out from schematic to board. Focus on clean power, compact routing and easy access to I/O pins for makers.</p>
+            <ul class="tags"><li>SBC</li><li>Layout</li><li>Power</li><li>PCB</li></ul>
+          </div>
+        </article>
+        <article class="proj">
+          <!-- EDIT: swap svg for <img class="thumb" src="img/project5.webp" alt="Flight Controller board" loading="lazy" width="640" height="400"> -->
+          <svg class="thumb" viewBox="0 0 320 200" role="img" aria-label="Flight Controller board illustration"><rect width="320" height="200" fill="#0b1d2e"/><path d="M0 150H90L120 120H230L260 150H320M0 60H70L100 90H200L230 60H320" fill="none" stroke="#d08a3c" stroke-width="3"/><circle cx="90" cy="150" r="5" fill="#d08a3c"/><circle cx="260" cy="150" r="5" fill="#d08a3c"/><rect x="110" y="82" width="100" height="36" rx="3" fill="#102a40" stroke="#38d9ff"/><text x="160" y="105" text-anchor="middle" font-family="monospace" font-size="13" fill="#ffd23f">Flight Controller</text></svg>
+          <div class="body">
+            <h3>Flight Controller</h3>
+            <p>Control board for drones. Combines an IMU, motor driver outputs and receiver inputs on a small, lightweight board that keeps the craft stable in the air.</p>
+            <ul class="tags"><li>IMU</li><li>MCU</li><li>Drone</li><li>PCB</li></ul>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -166,6 +251,17 @@ footer .spec{display:block;margin-top:4px;font:.8rem ui-monospace,Consolas,monos
     <div class="wrap">
       <h2>Get in touch</h2>
       <p>Have a PCB, electrical or electronics project? Send me a message and tell me what you need.</p>
+      <form class="msg" id="cf" action="https://api.web3forms.com/submit" method="POST">
+        <!-- EDIT: free key from web3forms.com, sent to your email -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New message from portfolio">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+        <div><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
+        <div><label for="e">Email</label><input id="e" type="email" name="email" required autocomplete="email"></div>
+        <div><label for="m">Project details</label><textarea id="m" name="message" required></textarea></div>
+        <button type="submit">Send message</button>
+        <div id="fs" role="status" aria-live="polite"></div>
+      </form>
       <div class="links">
         <a class="btn" href="mailto:sabinshrestha2080@gmail.com">Email me</a>
         <a class="btn" href="https://www.linkedin.com/in/sabin-shrestha026" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -179,6 +275,26 @@ footer .spec{display:block;margin-top:4px;font:.8rem ui-monospace,Consolas,monos
 <footer>
   <div class="wrap">&copy; <span id="y">2026</span> Sabin Shrestha. sabinshrestha2558.com.np<span class="spec">GND &#9135;&#9135; 5V &#9135;&#9135; 3.3V &#9135;&#9135; SIGNAL OK</span></div>
 </footer>
-<script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById("cf").addEventListener("submit",async function(ev){
+  ev.preventDefault();
+  var f=ev.target,b=f.querySelector("button"),st=document.getElementById("fs");
+  var key=f.access_key.value;
+  if(!key||key==="YOUR_ACCESS_KEY"){
+    var body="Name: "+f.name.value+"\nEmail: "+f.email.value+"\n\n"+f.message.value;
+    window.location.href="mailto:sabinshrestha2080@gmail.com?subject="+encodeURIComponent("Portfolio message from "+f.name.value)+"&body="+encodeURIComponent(body);
+    st.className="ok";st.textContent="Opening your email app...";
+    return;
+  }
+  b.disabled=true;st.className="";st.textContent="Sending...";
+  try{
+    var r=await fetch(f.action,{method:"POST",headers:{Accept:"application/json"},body:new FormData(f)});
+    var d=await r.json();
+    if(d.success){st.className="ok";st.textContent="Sent. I will reply soon.";f.reset();}
+    else{st.className="err";st.textContent="Failed: "+(d.message||"unknown error")+". Email me directly instead.";}
+  }catch(x){st.className="err";st.textContent="Network error. Email me directly instead.";}
+  b.disabled=false;
+});
+document.getElementById("y").textContent=new Date().getFullYear();</script>
 </body>
 </html>
