@@ -10,71 +10,94 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --mask:#0e3b2c; --mask-2:#134a38; --copper:#d08a3c; --silk:#f3f1e7;
+  --mask:#0b1d2e; --mask-2:#102a40; --copper:#d08a3c; --silk:#f3f1e7;
+  --volt:#ffd23f; --arc:#38d9ff;
   --ink:#16221d; --muted:#51605a; --paper:#f7f6ef; --line:#d9d6c6;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Archivo,"Segoe UI",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+:focus-visible{outline:3px solid var(--volt);outline-offset:3px}
 .wrap{max-width:960px;margin:0 auto;padding:0 24px}
 
 /* Hero */
-header{background:var(--mask);color:var(--silk);position:relative;overflow:hidden;padding:96px 0 88px}
-header svg{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+header{background:radial-gradient(ellipse at 80% 20%,#14405f 0,var(--mask) 60%);color:var(--silk);position:relative;overflow:hidden;padding:96px 0 110px}
+header svg.bg{position:absolute;inset:0;width:100%;height:100%}
 .trace{fill:none;stroke:var(--copper);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 3s ease-out forwards}
 .t2{animation-delay:.4s}.t3{animation-delay:.8s}
+.flow{fill:none;stroke:var(--volt);stroke-width:3;stroke-linecap:round;stroke-dasharray:6 44;filter:drop-shadow(0 0 4px var(--volt));animation:flow 2.2s linear infinite;opacity:0}
+.f1{animation-delay:3s}.f2{animation-delay:3.4s}.f3{animation-delay:3.8s}
 .pad{fill:var(--copper)}
+.bolt{fill:var(--volt);filter:drop-shadow(0 0 10px var(--volt));animation:zap 4s infinite}
+.wave{fill:none;stroke:var(--arc);stroke-width:2;opacity:.55;filter:drop-shadow(0 0 4px var(--arc))}
 @keyframes draw{to{stroke-dashoffset:0}}
-@media (prefers-reduced-motion:reduce){.trace{animation:none;stroke-dashoffset:0}}
+@keyframes flow{0%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:-500;opacity:1}}
+@keyframes zap{0%,86%,100%{opacity:.9}88%{opacity:.2}90%{opacity:1}93%{opacity:.3}95%{opacity:1}}
+@keyframes blink{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.trace{animation:none;stroke-dashoffset:0}.flow{animation:none;opacity:1}.bolt,.live i{animation:none}}
 .hero{position:relative}
-.hero h1{font-size:clamp(2.6rem,9vw,5.5rem);font-weight:800;line-height:1.02;letter-spacing:-.02em}
-.hero p.role{margin-top:18px;font-size:1.25rem;color:var(--copper);font-weight:600}
-.hero p.lead{margin-top:14px;max-width:46ch;color:#d4ddd7}
+.live{display:inline-flex;align-items:center;gap:9px;font:600 .82rem/1 ui-monospace,Consolas,monospace;letter-spacing:.08em;color:var(--volt);border:1px solid rgba(255,210,63,.45);padding:7px 12px;border-radius:3px;margin-bottom:22px;background:rgba(255,210,63,.07)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--volt);box-shadow:0 0 8px var(--volt);animation:blink 1.2s infinite}
+.hero h1{font-size:clamp(2.6rem,9vw,5.5rem);font-weight:800;line-height:1.02;letter-spacing:-.02em;text-shadow:0 0 28px rgba(56,217,255,.25)}
+.hero p.role{margin-top:18px;font-size:1.25rem;color:var(--volt);font-weight:600}
+.hero p.lead{margin-top:14px;max-width:46ch;color:#cfdce6}
 nav{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:11px 22px;border-radius:4px;font-weight:600;text-decoration:none;border:2px solid var(--copper)}
-.btn.fill{background:var(--copper);color:#1a1209}
+.btn{display:inline-block;padding:11px 22px;border-radius:4px;font-weight:600;text-decoration:none;border:2px solid var(--volt);transition:box-shadow .2s,background .2s,color .2s}
+.btn.fill{background:var(--volt);color:#1a1503}
 .btn.line{color:var(--silk)}
-.btn:hover{background:var(--silk);border-color:var(--silk);color:var(--mask)}
+.btn:hover{background:var(--silk);border-color:var(--silk);color:var(--mask);box-shadow:0 0 18px rgba(255,210,63,.6)}
 
 /* Sections */
 section{padding:64px 0;border-bottom:1px solid var(--line)}
-h2{font-size:1.9rem;font-weight:800;letter-spacing:-.01em;margin-bottom:22px}
+h2{font-size:1.9rem;font-weight:800;letter-spacing:-.01em;margin-bottom:22px;display:flex;align-items:center;gap:12px}
+h2::before{content:"";width:18px;height:28px;flex:none;background:var(--volt);clip-path:polygon(60% 0,0 58%,42% 58%,30% 100%,100% 38%,56% 38%);filter:drop-shadow(0 0 0 #000)}
 .about p{max-width:62ch;font-size:1.08rem;margin-bottom:14px}
 
 .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.skill{background:#fff;border:1px solid var(--line);border-left:6px solid var(--mask);padding:20px 20px 18px;border-radius:2px}
+.skill{background:#fff;border:1px solid var(--line);border-left:6px solid var(--mask);padding:20px 20px 18px;border-radius:2px;transition:transform .2s,box-shadow .2s,border-color .2s}
 .skill:nth-child(even){border-left-color:var(--copper)}
+.skill:hover{transform:translateY(-3px);border-left-color:var(--volt);box-shadow:0 8px 24px rgba(56,217,255,.25),0 0 0 1px var(--arc)}
 .skill h3{font-size:1.1rem;margin-bottom:6px}
 .skill p{color:var(--muted);font-size:.96rem}
 
 .edu{list-style:none;border-left:3px solid var(--copper);padding-left:24px}
 .edu li{margin-bottom:26px;position:relative}
-.edu li::before{content:"";position:absolute;left:-33px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--paper);border:3px solid var(--mask)}
+.edu li::before{content:"";position:absolute;left:-33px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--volt);border:3px solid var(--mask);box-shadow:0 0 8px var(--volt)}
 .edu strong{display:block;font-size:1.12rem}
 .edu span{color:var(--muted)}
+
+/* Waveform divider */
+.sine{display:block;width:100%;height:46px;background:var(--mask)}
+.sine path{fill:none;stroke:var(--arc);stroke-width:2;vector-effect:non-scaling-stroke}
 
 .contact p{max-width:52ch;margin-bottom:18px}
 .links{display:flex;gap:12px;flex-wrap:wrap}
 .links .btn{border-color:var(--mask);color:var(--mask)}
-.links .btn:hover{background:var(--mask);color:var(--silk);border-color:var(--mask)}
+.links .btn:hover{background:var(--mask);color:var(--volt);border-color:var(--mask);box-shadow:0 0 18px rgba(56,217,255,.6)}
 
-footer{background:var(--mask);color:#b9c7bf;padding:26px 0;font-size:.92rem}
+footer{background:var(--mask);color:#a9bccb;padding:26px 0;font-size:.92rem}
+footer .spec{display:block;margin-top:4px;font:.8rem ui-monospace,Consolas,monospace;color:var(--volt);letter-spacing:.08em}
 </style>
 </head>
 <body>
 
 <header>
-  <svg viewBox="0 0 960 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <svg class="bg" viewBox="0 0 960 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <path class="trace" d="M0 430 H260 L330 360 H620 L690 430 H960"/>
     <path class="trace t2" d="M0 480 H180 L250 410 H500 L570 480 H960"/>
     <path class="trace t3" d="M960 90 H760 L700 150 H520 L460 90 H300"/>
+    <path class="flow f1" d="M0 430 H260 L330 360 H620 L690 430 H960"/>
+    <path class="flow f2" d="M0 480 H180 L250 410 H500 L570 480 H960"/>
+    <path class="flow f3" d="M960 90 H760 L700 150 H520 L460 90 H300"/>
     <circle class="pad" cx="260" cy="430" r="7"/><circle class="pad" cx="690" cy="430" r="7"/>
-    <circle class="pad" cx="250" cy="410" r="0"/><circle class="pad" cx="570" cy="480" r="7"/>
+    <circle class="pad" cx="570" cy="480" r="7"/>
     <circle class="pad" cx="300" cy="90" r="7"/><circle class="pad" cx="760" cy="90" r="7"/>
+    <path class="wave" d="M0 250 q30 -40 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0"/>
+    <polygon class="bolt" points="820,150 770,250 805,250 785,330 860,215 822,215"/>
   </svg>
   <div class="wrap hero">
+    <div class="live"><i></i>230V ~ 50Hz &middot; LIVE</div>
     <h1>Sabin<br>Shrestha</h1>
     <p class="role">PCB Designer</p>
     <p class="lead">I design circuit boards and build electrical, robotic and IoT systems, from schematic to working hardware.</p>
@@ -84,6 +107,10 @@ footer{background:var(--mask);color:#b9c7bf;padding:26px 0;font-size:.92rem}
     </nav>
   </div>
 </header>
+
+<svg class="sine" viewBox="0 0 960 46" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 23 Q30 -8 60 23 T120 23 T180 23 T240 23 T300 23 T360 23 T420 23 T480 23 T540 23 T600 23 T660 23 T720 23 T780 23 T840 23 T900 23 T960 23"/>
+</svg>
 
 <main>
   <section class="about" id="about">
@@ -119,65 +146,38 @@ footer{background:var(--mask);color:#b9c7bf;padding:26px 0;font-size:.92rem}
 
   <section id="experience">
     <div class="wrap">
-     <h2>Work Experience</h2>
-       <ul class="edu">
-      <li>
-        <strong>Robotics Engineer</strong>
-        <span>Six Sense Technology Pvt. Ltd. | 2026 – Present</span>
-        <p>Working on robotics engineering, electronic systems integration, hardware development, and the design and implementation of robotics solutions.</p>
-      </li>
-
-      <li>
-        <strong>Robotics Instructor</strong>
-        <span>Uttan Robotics Lab Pvt. Ltd. | 2025 – Present</span>
-        <p>Teaching robotics, electronics, programming, and hands-on STEM concepts while guiding students in building and experimenting with robotic systems.</p>
-      </li>
-     </ul>
-   </div>
+      <h2>Work Experience</h2>
+      <ul class="edu">
+        <li>
+          <strong>Robotics Engineer</strong>
+          <span>Six Sense Technology Pvt. Ltd. | 2026 – Present</span>
+          <p>Working on robotics engineering, electronic systems integration, hardware development, and the design and implementation of robotics solutions.</p>
+        </li>
+        <li>
+          <strong>Robotics Instructor</strong>
+          <span>Uttan Robotics Lab Pvt. Ltd. | 2025 – Present</span>
+          <p>Teaching robotics, electronics, programming, and hands-on STEM concepts while guiding students in building and experimenting with robotic systems.</p>
+        </li>
+      </ul>
+    </div>
   </section>
 
-<section class="contact" id="contact">
-  <div class="wrap">
-    <h2>Get in touch</h2>
-    <p>Have a PCB, electrical or electronics project? Send me a message and tell me what you need.</p>
-
-    <div class="links">
-      <!-- Email -->
-      <a class="btn"
-         href="mailto:sabinshrestha2080@gmail.com">
-        Email me
-      </a>
-
-      <!-- LinkedIn -->
-      <a class="btn"
-         href="https://www.linkedin.com/in/sabin-shrestha026"
-         target="_blank"
-         rel="noopener noreferrer">
-        LinkedIn
-      </a>
-
-      <!-- GitHub -->
-      <a class="btn"
-         href="https://github.com/Sabin-Shrestha001"
-         target="_blank"
-         rel="noopener noreferrer">
-        GitHub
-      </a>
-
-      <!-- Facebook -->
-      <a class="btn"
-         href="https://www.facebook.com/sabin.newar.shrestha"
-         target="_blank"
-         rel="noopener noreferrer">
-        Facebook
-      </a>
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p>Have a PCB, electrical or electronics project? Send me a message and tell me what you need.</p>
+      <div class="links">
+        <a class="btn" href="mailto:sabinshrestha2080@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/sabin-shrestha026" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn" href="https://github.com/Sabin-Shrestha001" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn" href="https://www.facebook.com/sabin.newar.shrestha" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <footer>
-  <div class="wrap">&copy; <span id="y">2026</span> Sabin Shrestha. sabinshrestha2558.com.np</div>
+  <div class="wrap">&copy; <span id="y">2026</span> Sabin Shrestha. sabinshrestha2558.com.np<span class="spec">GND &#9135;&#9135; 5V &#9135;&#9135; 3.3V &#9135;&#9135; SIGNAL OK</span></div>
 </footer>
 <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
 </body>
